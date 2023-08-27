@@ -67,3 +67,7 @@ yarn-error.log
 
 # vscode
 .vscode
+
+# lock files
+package-lock.json
+yarn.lock
