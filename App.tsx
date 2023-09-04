@@ -1,34 +1,31 @@
+import {NavigationContainer} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+
+import {StatusBar} from 'react-native';
+import AppStackNavigator from './src/navigation/AppStackNavigator';
+
+// import Database from './src/database';
 
 export default function App() {
   useEffect(() => {
-    /* const connect = async () => {
+    const connect = async () => {
       try {
-        const datasource = await Database.connect();
-        TODO: call only in the first launch of the app
-        await datasource.synchronize(true);
+        // const datasource = await Database.connect();
+        /*
+         *TODO: call only in the first launch of the app
+         */
+        // await datasource.synchronize(true);
       } catch (error) {
         console.log(error);
       }
     };
     connect();
-    */
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <NavigationContainer>
       <StatusBar barStyle="default" />
-    </View>
+      <AppStackNavigator />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
