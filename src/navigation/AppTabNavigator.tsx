@@ -1,6 +1,13 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 
+import {
+  BudgetIcon,
+  GraphicIcon,
+  NotificationIcon,
+  ProvisionIcon,
+  SettingsIcon,
+} from '../components/tabsIcons';
 import GraphicScreen from '../screens/Graphic';
 import NotificationScreen from '../screens/Notification';
 import SettingsScreen from '../screens/Settings';
@@ -13,11 +20,34 @@ const TabNavigator = createBottomTabNavigator<HomeTabParamList>();
 const AppTabs: React.FC = () => {
   return (
     <TabNavigator.Navigator>
-      <TabNavigator.Screen name="Budget" component={BudgetScreen} />
-      <TabNavigator.Screen name="Provision" component={ProvisionScreen} />
-      <TabNavigator.Screen name="Graphic" component={GraphicScreen} />
-      <TabNavigator.Screen name="Notification" component={NotificationScreen} />
-      <TabNavigator.Screen name="Settings" component={SettingsScreen} />
+      <TabNavigator.Screen
+        name="Budget"
+        component={BudgetScreen}
+        options={{tabBarIcon: BudgetIcon}}
+      />
+      <TabNavigator.Screen
+        name="Provision"
+        component={ProvisionScreen}
+        options={{tabBarIcon: ProvisionIcon}}
+      />
+      <TabNavigator.Screen
+        name="Graphic"
+        component={GraphicScreen}
+        options={{tabBarIcon: GraphicIcon}}
+      />
+      <TabNavigator.Screen
+        name="Notification"
+        component={NotificationScreen}
+        options={{
+          tabBarIcon: NotificationIcon,
+          tabBarBadge: 3,
+        }}
+      />
+      <TabNavigator.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{tabBarIcon: SettingsIcon}}
+      />
     </TabNavigator.Navigator>
   );
 };
